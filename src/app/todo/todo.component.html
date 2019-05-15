@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="todo-wrap">
+        <h1 class="title">Todo List</h1>
+        <div class="form-group">
+          <label for="main">Add your task</label>
+          <input class="form-control" type="text" name="main" #NameEl>
+        </div>
+        <a class="btn btn-primary btn-block" (click)="addTask(NameEl)">Add</a>
+        <ul class="todo-list" *ngFor="let e of events">
+            <li class="todo-list_item" [ngClass]="{'done': e.isCheked}" (click)="onChecked($event)">
+            <span>{{e.name}}</span>
+            <a (click)="onDelete($event)" class="close"><i class="fa fa-times"></i></a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
